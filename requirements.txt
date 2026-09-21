@@ -1,0 +1,10 @@
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.7.5
+opencv-python==4.10.0.84
+# first install dlib before installing face-recognition, run this command for dlib - conda install -c conda-forge dlib and after that run - pip install face_recognition==1.3.0
+#face-recognition==1.3.0
+scikit-learn==1.2.2
+seaborn==0.12.2
+flask==2.2.5
+protobuf==3.20.3

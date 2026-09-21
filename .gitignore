@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+temp_image.jpg
+
+# Generated prediction results
+static/results/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+venv/
