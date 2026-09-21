@@ -36,28 +36,31 @@ https://youtu.be/O3IqMDZ8uvo?si=NkIOJXzUAJsF3ZJH
 
 ---
 
+
 ## 🏗️ Recognition Workflow
 
-
-Webcam / Uploaded Image
-             │
-             ▼
-      Face Detection
-             │
-             ▼
-  Face Embedding Extraction
-             │
-             ▼
-  K-Nearest Neighbors (KNN)
-             │
-             ▼
-  Identity Prediction
-             │
-             ▼
-Bounding Boxes + Confidence Score
-             │
-             ▼
-Annotated Image Output
+```text
+       Webcam / Uploaded Image
+                 │
+                 ▼
+          Face Detection
+                 │
+                 ▼
+      Face Embedding Extraction
+                 │
+                 ▼
+      K-Nearest Neighbors (KNN)
+                 │
+                 ▼
+      Identity Prediction
+                 │
+                 ▼
+ Bounding Boxes + Confidence Score
+                 │
+                 ▼
+      Annotated Image Output
+```
+          
 
 
 ---
