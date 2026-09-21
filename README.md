@@ -134,7 +134,7 @@ Contributions, suggestions, and feature enhancements are welcome. Feel free to f
 
 # 👨‍💻 Author
 
-**Mandeep Kharb**
+**Keerti Chavhan**
 
 If you found this project useful, consider giving it a ⭐ on GitHub.
 
