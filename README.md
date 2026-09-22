@@ -14,13 +14,6 @@ If a detected face does not sufficiently match any known individual, it is class
 
 ---
 
-## 🎬 Project Demonstration
-
-Watch the complete project walkthrough on YouTube:
-https://youtu.be/O3IqMDZ8uvo?si=NkIOJXzUAJsF3ZJH
-
----
-
 ## ✨ Features
 
 - 👤 Real-time webcam face recognition and uploaded image detection
