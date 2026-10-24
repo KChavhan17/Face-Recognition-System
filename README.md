@@ -1,3 +1,14 @@
+---
+title: Face Recognition System
+emoji: 👤
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
+
 # 👤 AI Face Recognition System using Face Embeddings & KNN
 
 An end-to-end **AI-powered Face Recognition System** built using **Python, Flask, OpenCV, face_recognition, and Scikit-learn**. The application identifies known individuals from uploaded images by extracting facial embeddings and matching them against a trained **K-Nearest Neighbors (KNN)** model.
