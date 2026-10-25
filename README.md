@@ -141,3 +141,9 @@ If you found this project useful, consider giving it a ⭐ on GitHub.
 ---
 
 
+
+🌐 Live Application: https://face-recognition-system-x7u4.onrender.com
+
+
+
+
