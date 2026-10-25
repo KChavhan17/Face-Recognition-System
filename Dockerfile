@@ -1,27 +1,21 @@
 FROM python:3.10-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV CMAKE_BUILD_PARALLEL_LEVEL=1
 
-# Install build tools and libraries
+# Install pre-compiled dlib and OpenCV dependencies directly from Debian repos
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    cmake \
-    libopenblas-dev \
-    liblapack-dev \
-    libx11-dev \
+    python3-dlib \
     libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install dlib and face-recognition
-RUN pip install --no-cache-dir dlib==19.24.2
-RUN pip install --no-cache-dir face-recognition==1.3.0
-
-# Install remaining dependencies
 COPY requirements.txt .
+
+# Install face-recognition without recompiling dlib
+RUN pip install --no-cache-dir --no-deps face-recognition-models==0.3.0
+RUN pip install --no-cache-dir --no-deps face-recognition==1.3.0
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
