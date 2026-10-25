@@ -1,22 +1,26 @@
 FROM python:3.10-slim
 
-# Install system runtime libraries and wget
+ENV DEBIAN_FRONTEND=noninteractive
+ENV CMAKE_BUILD_PARALLEL_LEVEL=1
+
+# Install build tools and libraries
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    libopenblas-dev \
+    liblapack-dev \
+    libx11-dev \
     libgl1 \
     libglib2.0-0 \
-    wget \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Download and install pre-built dlib wheel directly
-RUN wget -q https://github.com/reagankm/dlib-python-wheels/releases/download/v19.24.2/dlib-19.24.2-cp310-cp310-linux_x86_64.whl \
-    && pip install --no-cache-dir dlib-19.24.2-cp310-cp310-linux_x86_64.whl \
-    && rm dlib-19.24.2-cp310-cp310-linux_x86_64.whl
+# Install dlib and face-recognition
+RUN pip install --no-cache-dir dlib==19.24.2
+RUN pip install --no-cache-dir face-recognition==1.3.0
 
-# Install face-recognition without triggering a dlib build
-RUN pip install --no-cache-dir --no-deps face-recognition==1.3.0 face-recognition-models==0.3.0
-
+# Install remaining dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -25,4 +29,4 @@ COPY . .
 ENV PORT=10000
 EXPOSE 10000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "--workers", "1", "--threads", "2", "--timeout", "120", "app:app"]
